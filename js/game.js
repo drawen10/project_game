@@ -4,19 +4,18 @@ import { updateUI } from './ui.js';
 import { initTooltip } from './tooltip.js';
 
 export function initGame({ name, difficulty }) {
-  console.log('🚀 initGame meghívódott', { name, difficulty });
+  console.log('🚀 initGame invited', { name, difficulty });
   const lvl = levels[difficulty];
   const state = {
     name,
     difficulty,
     cols: lvl.cols,
     rows: lvl.rows,
-    timeLeft: lvl.time * 60,
+    timeLeft: lvl.time,
     score: 0,
     grid: createGrid(lvl.cols, lvl.rows)
   };
 
-  // kezdő tile-ok
   for (let i = 0; i < lvl.cols; i++) {
     spawnTile(state.grid);
   }
@@ -24,14 +23,13 @@ export function initGame({ name, difficulty }) {
   updateUI(state);
   initTooltip();
 
-  console.log('🔧 Játék állapot inicializálva', state);
+  console.log('🔧 Game state initialized', state);
 
-  // időzítő
   const timerId = setInterval(() => {
     state.timeLeft--;
     if (state.timeLeft <= 0) {
       clearInterval(timerId);
-      console.log('⏰ Idő lejárt, game over');
+      console.log('⏰ Time out, game over');
       endGame(state);
     }
     updateUI(state);
@@ -39,7 +37,7 @@ export function initGame({ name, difficulty }) {
 }
 
 function endGame(state) {
-  console.log('🏁 Játék vége, pontszám:', state.score);
-  alert(`Game Over! Elért pontszám: ${state.score}`);
+  console.log('🏁 Game over, Score:', state.score);
+  alert(`Game Over! Score: ${state.score}`);
   window.location.reload();
 }

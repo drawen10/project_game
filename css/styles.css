@@ -1,5 +1,4 @@
 :root {
-    /* Színpaletta a Figma alapján */
     --bg-main: #f5f7fa;
     --bg-panel: #ffffff;
     --accent: #4a90e2;
@@ -29,7 +28,6 @@
     display: none;
   }
   
-  /* --- Kezdőképernyő --- */
   #start-screen {
     display: flex;
     flex-direction: column;
@@ -61,7 +59,6 @@
     box-shadow: 0 4px 12px var(--shadow-deep);
   }
   
-  /* --- Játékképernyő teljes elrendezés --- */
   #game-screen {
     display: grid;
     grid-template-areas:
@@ -74,7 +71,6 @@
     padding: var(--gap);
   }
   
-  /* Fejléc */
   header {
     grid-area: header;
     display: flex;
@@ -108,9 +104,93 @@
     background: #357ab8;
   }
   
-  /* Scoreboard és Ranglista panelek */
   aside {
     background: var(--bg-panel);
     padding: var(--gap);
-    border-radius: var(--
-  
+    border-radius: var(--radius-lg)
+  }
+
+#grid {
+  grid-area: grid;
+  display: grid;
+  grid-template-columns: repeat(var(--cols), 80px);
+  gap: var(--gap);
+  justify-content: center;
+  align-content: start;
+}
+
+.cell {
+  width: 80px;
+  height: 80px;
+  background: var(--tile-light);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px var(--shadow-soft);
+}
+
+.tile {
+  width: 70px;
+  height: 70px;
+  background: var(--accent);
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#scoreboard {
+  grid-area: scoreboard;
+}
+
+#grid {
+  grid-area: grid;
+}
+
+#leaderboard {
+  grid-area: leaderboard;
+}
+
+
+
+#game-screen {
+  display: none; 
+}
+
+#game-screen.active {
+  display: grid; 
+}
+
+
+.cell.selected {
+  outline: 3px solid var(--accent);
+  outline-offset: -3px;
+}
+.tile {
+  width: 80px;
+  height: 80px;
+  background: var(--tile-light);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  box-shadow: 0 2px 6px var(--shadow-soft);
+  text-align: center;
+}
+
+.tile-img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  margin-bottom: 4px;
+}
+
+.tile-label {
+  font-size: 0.7rem;
+  color: var(--text-primary);
+}

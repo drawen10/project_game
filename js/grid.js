@@ -2,7 +2,6 @@ export function createGrid(cols, rows) {
     return Array.from({ length: rows }, () => Array(cols).fill(null));
   }
   
-  // Egy véletlenszerű 1-es szintű tile generálása:
   export function spawnTile(grid) {
     const empty = [];
     grid.forEach((row, r) => row.forEach((cell, c) => { if (!cell) empty.push({r,c}); }));
@@ -11,7 +10,6 @@ export function createGrid(cols, rows) {
     grid[r][c] = { level: 1 };
   }
   
-  // Két cella egyesítése:
   export function mergeTiles(grid, r1, c1, r2, c2) {
     const a = grid[r1][c1], b = grid[r2][c2];
     if (!a || !b || a.level !== b.level) return false;

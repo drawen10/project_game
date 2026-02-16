@@ -13,7 +13,6 @@ export function initTooltip() {
   
   function showTooltip(cell) {
     const lvl = cell.querySelector('.tile').textContent;
-    // létrehozod és pozícionálod a div.tooltip-et, benne a teljes lánccal és leírással
   }
   
   function hideTooltip() {
