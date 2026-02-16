@@ -1,0 +1,116 @@
+:root {
+    /* Színpaletta a Figma alapján */
+    --bg-main: #f5f7fa;
+    --bg-panel: #ffffff;
+    --accent: #4a90e2;
+    --tile-light: #e1efff;
+    --tile-dark: #a1c4fd;
+    --text-primary: #333333;
+    --text-secondary: #777777;
+    --shadow-soft: rgba(0, 0, 0, 0.1);
+    --shadow-deep: rgba(0, 0, 0, 0.2);
+    --radius-lg: 16px;
+    --gap: 12px;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  /* --- Kezdőképernyő --- */
+  #start-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: var(--bg-panel);
+  }
+  #start-screen h1 {
+    font-size: 2.5rem;
+    margin-bottom: var(--gap);
+    color: var(--accent);
+  }
+  #start-screen input,
+  #start-screen select,
+  #start-screen button {
+    margin: var(--gap) 0;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: var(--radius-lg);
+    background: #fff;
+    box-shadow: 0 2px 6px var(--shadow-soft);
+    transition: box-shadow 0.2s ease;
+  }
+  #start-screen input:focus,
+  #start-screen select:focus,
+  #start-screen button:hover {
+    box-shadow: 0 4px 12px var(--shadow-deep);
+  }
+  
+  /* --- Játékképernyő teljes elrendezés --- */
+  #game-screen {
+    display: grid;
+    grid-template-areas:
+      "header header header"
+      "scoreboard grid leaderboard";
+    grid-template-columns: 200px 1fr 200px;
+    grid-template-rows: auto 1fr;
+    height: 100vh;
+    gap: var(--gap);
+    padding: var(--gap);
+  }
+  
+  /* Fejléc */
+  header {
+    grid-area: header;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--bg-panel);
+    padding: var(--gap);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 2px 8px var(--shadow-soft);
+  }
+  header span {
+    font-size: 1rem;
+    color: var(--text-secondary);
+  }
+  header #timer,
+  header #score {
+    font-weight: bold;
+    color: var(--text-primary);
+  }
+  header button {
+    padding: 0.5rem 1rem;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    box-shadow: 0 2px 6px var(--shadow-soft);
+    transition: background 0.2s ease;
+  }
+  header button:hover {
+    background: #357ab8;
+  }
+  
+  /* Scoreboard és Ranglista panelek */
+  aside {
+    background: var(--bg-panel);
+    padding: var(--gap);
+    border-radius: var(--
+  
