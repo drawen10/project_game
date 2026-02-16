@@ -4,31 +4,31 @@ window.addEventListener('load', () => {
   console.log('app.js load event fired');
   const playBtn = document.getElementById('play-btn');
   if (!playBtn) {
-    console.error('❌ Nem találom a #play-btn elemet!');
+    console.error('❌ Couldnt find #play-btn element!');
     return;
   }
-  console.log('✅ playBtn megtalálva:', playBtn);
+  console.log('✅ playBtn found:', playBtn);
 
   playBtn.addEventListener('click', () => {
-    console.log('🔘 Play gombra kattintottak');
+    console.log('🔘 Clicked on Play ');
     const nameInput = document.getElementById('player-name');
     const diffSelect = document.getElementById('difficulty');
     if (!nameInput || !diffSelect) {
-      console.error('❌ Hiányzó #player-name vagy #difficulty elem');
+      console.error('❌ Missing #player-name or #difficulty element');
       return;
     }
 
     const name = nameInput.value.trim();
     const difficulty = diffSelect.value;
-    console.log('→ Név:', name, 'nehézség:', difficulty);
+    console.log('→ Name:', name, 'Difficulty:', difficulty);
 
     if (!name) {
-      alert('Kérlek, add meg a neved!');
+      alert('Please give us your name!');
       return;
     }
 
     document.getElementById('start-screen').classList.add('hidden');
-    document.getElementById('game-screen').classList.remove('hidden');
+    document.getElementById('game-screen').classList.add('active');
 
     initGame({ name, difficulty });
   });
